@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventario Homeopático</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Inventario de Medicamentos Homeopáticos</h1>
+</header>
+
+<main class="container">
+  <section class="form-section">
+    <div class="form-container">
+      <h2>Ingreso de Medicamentos</h2>
+      <form id="inventarioForm">
+        <label for="nombre">Nombre del Medicamento:</label>
+        <input type="text" id="nombre" name="nombre" required autocomplete="off">
+        <div id="sugerencias-nombre" class="sugerencias"></div>
+
+        <label for="presentacion">Presentación:</label>
+        <select id="presentacion" name="presentacion" required>
+          <option value="">-- Selecciona --</option>
+          <option value="gotas">Gotas</option>
+          <option value="globulos">Glóbulos</option>
+        </select>
+
+        <label for="nivel_dinamizacion">Nivel de dinamización:</label>
+        <input type="text" id="nivel_dinamizacion" name="nivel_dinamizacion" required>
+
+        <label for="tipo_dinamizacion">Tipo de dinamización:</label>
+        <input type="text" id="tipo_dinamizacion" name="tipo_dinamizacion" required>
+
+        <label for="cantidad_actual">Cantidad a Ingresar:</label>
+        <input type="number" id="cantidad_actual" name="cantidad_actual" required min="1">
+
+        <label for="unidad">Unidad:</label>
+        <select id="unidad" name="unidad" required>
+          <option value="">-- Selecciona --</option>
+          <option value="gr">gr</option>
+          <option value="ml">ml</option>
+          <option value="unidades">unidades</option>
+        </select>
+
+        <button type="submit">Registrar Ingreso</button>
+      </form>
+    </div>
+
+    <div class="form-container">
+      <h2>Despacho de Medicamentos</h2>
+      <form id="despachoForm">
+        <label for="medicamento_id">ID del Medicamento:</label>
+        <input type="number" id="medicamento_id" name="medicamento_id" required min="1">
+
+        <label for="accion">Acción:</label>
+        <select id="accion" name="accion" required>
+          <option value="Ingreso">Ingreso</option>
+          <option value="Despacho">Despacho</option>
+        </select>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" required min="1">
+
+        <label for="usuario">Usuario que Despacha:</label>
+        <input type="text" id="usuario" name="usuario" required autocomplete="off">
+
+        <button type="submit">Registrar Movimiento</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="historial-container">
+    <h2>Historial de Movimientos</h2>
+    <div class="historial-actions">
+      <input type="text" id="filtroHistorial" placeholder="Filtrar por nombre...">
+      <button id="descargarExcel">Descargar Historial</button>
+      <button id="verHoja">Ver en Google Sheets</button>
+    </div>
+    <div class="table-container">
+      <table id="tablaHistorial">
+        <thead>
+          <tr>
+            <th>Medicamento</th>
+            <th>Fecha</th>
+            <th>Presentación</th>
+            <th>Acción</th>
+            <th>Cantidad</th>
+            <th>Restante</th>
+            <th>Dinamización</th>
+            <th>Tipo</th>
+            <th>Usuario</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
